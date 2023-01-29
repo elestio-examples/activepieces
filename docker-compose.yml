@@ -17,7 +17,7 @@ services:
       - AP_NODE_EXECUTABLE_PATH=/usr/local/bin/node
       - AP_POSTGRES_DATABASE=activepieces
       - AP_POSTGRES_HOST=postgres
-      - AP_POSTGRES_PASSWORD=A79Vm5D4p2VQHOp2gd5
+      - AP_POSTGRES_PASSWORD=${ADMIN_PASSWORD}
       - AP_POSTGRES_PORT=5432
       - AP_POSTGRES_USERNAME=postgres
       - AP_REDIS_HOST=redis
@@ -38,7 +38,7 @@ services:
     restart: always
     environment:
       - POSTGRES_DB=activepieces
-      - POSTGRES_PASSWORD=A79Vm5D4p2VQHOp2gd5
+      - POSTGRES_PASSWORD=${ADMIN_PASSWORD}
       - POSTGRES_USER=postgres
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
