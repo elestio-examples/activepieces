@@ -10,12 +10,6 @@ ports:
 environments:
   - key: "ADMIN_PASSWORD"
     value: "random_password"
-  - key: "AP_POSTGRES_PASSWORD"
-    value: "random_password"
-  - key: "AP_JWT_SECRET"
-    value: "random_password"
-  - key: "AP_ENCRYPTION_KEY"
-    value: "random_password_16"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
   - key: "AP_FRONTEND_URL"
