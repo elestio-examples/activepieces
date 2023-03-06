@@ -14,7 +14,7 @@ environments:
     value: "random_password"
   - key: "AP_JWT_SECRET"
     value: "random_password"
-  - key: "ENCRYPTION_KEY"
+  - key: "AP_ENCRYPTION_KEY"
     value: "random_password_16"
   - key: "ADMIN_EMAIL"
     value: "[EMAIL]"
