@@ -10,8 +10,8 @@ Deploy Activepieces with CI/CD on Elestio
 
 # Once deployed ...
 
-You can can open Activepieces UI here:
+You can open Activepieces UI here:
 
     URL: https://[CI_CD_DOMAIN]
-    email:[ADMIN_EMAIL]
+    email: [ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
