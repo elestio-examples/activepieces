@@ -20,3 +20,20 @@ AP_JWT_SECRET=${AP_JWT_SECRET}
 ENCRYPTION_KEY=${ENCRYPTION_KEY}
 AP_ENCRYPTION_KEY=${AP_ENCRYPTION_KEY}
 EOT
+
+cat <<EOT > ./servers.json
+{
+    "Servers": {
+        "1": {
+            "Name": "local",
+            "Group": "Servers",
+            "Host": "172.17.0.1",
+            "Port": 41962,
+            "MaintenanceDB": "postgres",
+            "SSLMode": "prefer",
+            "Username": "postgres",
+            "PassFile": "/pgpass"
+        }
+    }
+}
+EOT

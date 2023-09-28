@@ -1,30 +1,44 @@
-version: '3.0'
+version: "3.0"
 services:
   activepieces:
-    image: activepieces/activepieces:latest
+    image: elestio/activepieces:latest
     container_name: activepieces
-    restart: unless-stopped
+    restart: always
     privileged: true
     ports:
-      - '172.17.0.1:3000:3000'
-      - '172.17.0.1:8284:80'
+      - "172.17.0.1:3000:3000"
+      - "172.17.0.1:8284:80"
     depends_on:
       - postgres
       - redis
     env_file: .env
   postgres:
-    image: 'postgres:14.4'
+    image: "elestio/postgres:15"
     container_name: postgres
-    restart: unless-stopped
+    restart: always
     environment:
-      - 'POSTGRES_DB=${AP_POSTGRES_DATABASE}'
-      - 'POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}'
-      - 'POSTGRES_USER=${AP_POSTGRES_USERNAME}'
+      - "POSTGRES_DB=${AP_POSTGRES_DATABASE}"
+      - "POSTGRES_PASSWORD=${AP_POSTGRES_PASSWORD}"
+      - "POSTGRES_USER=${AP_POSTGRES_USERNAME}"
     volumes:
-      - './postgres_data:/var/lib/postgresql/data'
+      - "./postgres_data:/var/lib/postgresql/data"
+    ports:
+      - 172.17.0.1:41962:5432
   redis:
-    image: 'redis:7.0.7'
+    image: "elestio/redis:7.0"
     container_name: redis
-    restart: unless-stopped
+    restart: always
     volumes:
-      - './redis_data:/data'
+      - "./redis_data:/data"
+
+  pgadmin4:
+    image: dpage/pgadmin4:latest
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${ADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
+      PGADMIN_LISTEN_PORT: 8080
+    ports:
+      - "172.17.0.1:17671:8080"
+    volumes:
+      - ./servers.json:/pgadmin4/servers.json

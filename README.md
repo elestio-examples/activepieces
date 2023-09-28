@@ -15,3 +15,13 @@ You can can open Activepieces UI here:
     URL: https://[CI_CD_DOMAIN]
     email:[ADMIN_EMAIL]
     password: [ADMIN_PASSWORD]
+
+You can open pgAdmin web UI here:
+
+    URL: https://[CI_CD_DOMAIN]:4792
+    email: [ADMIN_EMAIL]
+    password: [ADMIN_PASSWORD]
+
+# Important
+
+To access to your database with pgAdmin, the database password will be in your environment variable `AP_POSTGRES_PASSWORD`
