@@ -2,7 +2,7 @@
 set -o allexport; source .env; set +o allexport;
 
 echo "Waiting";
-sleep 10;
+sleep 40;
 
 target=$(docker-compose port activepieces 80)
 
