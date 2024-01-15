@@ -1,7 +1,7 @@
 version: "3.0"
 services:
   activepieces:
-    image: elestio/activepieces:latest
+    image: elestio/activepieces:${SOFTWARE_VERSION_TAG}
     container_name: activepieces
     restart: always
     privileged: true
